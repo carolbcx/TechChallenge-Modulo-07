@@ -1,0 +1,51 @@
+@model TechChallenge.Professor
+
+@{
+    ViewData["Title"] = "Novo Professor";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="page-card">
+            <h1 class="page-title">Cadastrar Professor</h1>
+            <p class="text-muted mb-4">Adicione um novo professor ao sistema.</p>
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="mb-3">
+                    <label asp-for="Nome" class="form-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Especialidade" class="form-label"></label>
+                    <input asp-for="Especialidade" class="form-control" />
+                    <span asp-validation-for="Especialidade" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="DataContratacao" class="form-label"></label>
+                    <input asp-for="DataContratacao" class="form-control" />
+                    <span asp-validation-for="DataContratacao" class="text-danger"></span>
+                </div>
+                <div class="form-check mb-3">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                    </label>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Acesso Negado";
+    var isAuthenticated = User?.Identity?.IsAuthenticated ?? false;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="page-card text-center">
+            <div class="mb-4">
+                <span class="display-4 text-primary">🔒</span>
+            </div>
+            <h1 class="page-title">Acesso Negado</h1>
+
+            @if (!isAuthenticated)
+            {
+                <p class="lead text-muted">Você precisa entrar no sistema ou criar uma conta para acessar esta área.</p>
+            }
+            else
+            {
+                <p class="lead text-muted">Sua conta não tem permissão para acessar esta página. Caso ache que isso é um erro, solicite acesso ao administrador.</p>
+            }
+
+            <div class="mt-4 d-flex flex-column gap-3">
+                @if (!isAuthenticated)
+                {
+                    <a class="btn btn-primary btn-lg" asp-controller="Account" asp-action="Login">Entrar</a>
+                    <a class="btn btn-outline-primary btn-lg" asp-controller="Account" asp-action="Register">Cadastrar</a>
+                }
+                else
+                {
+                    <a class="btn btn-primary btn-lg" asp-controller="Home" asp-action="Index">Voltar para Início</a>
+                }
+                <a class="btn btn-outline-secondary btn-lg" asp-controller="Home" asp-action="Index">Página Inicial</a>
+            </div>
+        </div>
+    </div>
+</div>

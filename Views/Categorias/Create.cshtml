@@ -1,0 +1,50 @@
+@model TechChallenge.Categoria
+
+@{
+    ViewData["Title"] = "Nova Categoria";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="page-card">
+            <h1 class="page-title">Nova Categoria</h1>
+            <p class="text-muted mb-4">Preencha os dados abaixo para cadastrar uma nova categoria.</p>
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="mb-3">
+                    <label asp-for="Nome" class="form-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Descricao" class="form-label"></label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Cor" class="form-label"></label>
+                    <input type="color" asp-for="Cor" class="form-control form-control-color" />
+                    <span asp-validation-for="Cor" class="text-danger"></span>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" asp-for="Ativa" />
+                    <label class="form-check-label" asp-for="Ativa"></label>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="DataCadastro" class="form-label"></label>
+                    <input asp-for="DataCadastro" class="form-control" />
+                    <span asp-validation-for="DataCadastro" class="text-danger"></span>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

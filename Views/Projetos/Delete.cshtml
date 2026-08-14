@@ -1,0 +1,46 @@
+@model TechChallenge.Models.Projeto
+
+@{
+    ViewData["Title"] = "Excluir Projeto";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="page-card">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                    <h1 class="page-title">Excluir Projeto</h1>
+                    <p class="text-muted mb-0">Confirme se deseja remover permanentemente este projeto.</p>
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" asp-action="Index">Voltar</a>
+            </div>
+
+            <dl class="row gx-4 gy-3 mb-4">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Descricao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Descricao)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataInicio)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataInicio)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataFim)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataFim)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Pontuacao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Pontuacao)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Professor)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Professor.Email)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Categoria)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Categoria.Nome)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Equipe)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Equipe.Nome)</dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

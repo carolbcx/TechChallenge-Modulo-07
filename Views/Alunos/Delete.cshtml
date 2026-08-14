@@ -1,0 +1,42 @@
+@model TechChallenge.Aluno
+
+@{
+    ViewData["Title"] = "Excluir Aluno";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="page-card">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                    <h1 class="page-title">Excluir Aluno</h1>
+                    <p class="text-muted mb-0">Confirme a exclusão do aluno abaixo. Essa ação não pode ser desfeita.</p>
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" asp-action="Index">Voltar</a>
+            </div>
+
+            <dl class="row gx-4 gy-3 mb-4">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Telefone)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Telefone)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataNascimento)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataNascimento)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataCadastro)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataCadastro)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Ativo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Ativo)</dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

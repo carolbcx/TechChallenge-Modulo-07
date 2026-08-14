@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "TechChallenge";
+}
+
+<div class="hero-card mt-4">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <p class="eyebrow">Bem-vindo ao painel</p>
+            <h1 class="display-5 fw-bold">Gerencie projetos, categorias e equipes com mais clareza.</h1>
+            <p class="lead text-muted">A plataforma TechChallenge oferece navegação limpa, cadastros rápidos e um painel de controle com foco em gerenciamento educacional.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                <a class="btn btn-primary" asp-controller="Projetos" asp-action="Index">Projetos</a>
+                <a class="btn btn-outline-primary" asp-controller="Categorias" asp-action="Index">Categorias</a>
+                <a class="btn btn-outline-primary" asp-controller="Equipes" asp-action="Index">Equipes</a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="feature-box">
+                <h3>Recursos rápidos</h3>
+                <ul class="list-unstyled mt-3 mb-0">
+                    <li>• Criação e gerenciamento de categorias</li>
+                    <li>• Vinculação de projetos a professores e equipes</li>
+                    <li>• Layout responsivo e visual moderno</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-4">
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Visão geral</h5>
+            <p>Centralize informações e organize seu ciclo de projetos com simplicidade.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Cadastros fluídos</h5>
+            <p>Formulários claros e campos bem posicionados para agilizar as tarefas.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Design consistente</h5>
+            <p>Uma interface cada vez mais profissional e fácil de usar para todos os usuários.</p>
+        </div>
+    </div>
+</div>

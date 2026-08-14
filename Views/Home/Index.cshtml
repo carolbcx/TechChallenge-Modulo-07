@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Início";
+    var teste = "Olá, bem-vindo";
+}
+
+<div class="hero-card">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <p class="eyebrow">Painel administrativo</p>
+            <h1 class="display-5 fw-bold">Bem-vindo ao TechChallenge</h1>
+            <p class="lead text-muted">Gerencie projetos, categorias e equipes em uma experiência visual clara e eficiente.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                <a class="btn btn-primary" asp-controller="Projetos" asp-action="Index">Ver projetos</a>
+                <a class="btn btn-outline-primary" asp-controller="Categorias" asp-action="Index">Ver categorias</a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="feature-box">
+                <h3>O que você encontra</h3>
+                <ul class="list-unstyled mt-3 mb-0">
+                    <li>• Gestão de alunos e professores</li>
+                    <li>• Organização por categorias e equipes</li>
+                    <li>• Acompanhamento de projetos e entregas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-2">
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Visão geral</h5>
+            <p>Interface limpa e navegável para centralizar informações do desafio.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Colaboração</h5>
+            <p>Facilita o trabalho em equipe com organização e rastreio simples.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Resultado</h5>
+            <p>Uma experiência mais profissional para os usuários e administradores.</p>
+        </div>
+    </div>
+</div>

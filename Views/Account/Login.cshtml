@@ -1,0 +1,50 @@
+@model TechChallenge.LoginViewModel;
+
+@{
+    ViewData["Title"] = "Entrar";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="page-card">
+            <h1 class="page-title">Entrar</h1>
+            <p class="text-muted mb-4">Faça login para acessar seu painel e continuar no sistema.</p>
+
+            @if (!string.IsNullOrWhiteSpace(Model?.ReturnUrl))
+            {
+                <div class="alert alert-info mb-4">
+                    Você precisa entrar para acessar esta página.
+                </div>
+            }
+
+            <form asp-action="Login" method="post">
+                <input asp-for="ReturnUrl" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Digite seu email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Senha" class="form-label"></label>
+                    <input asp-for="Senha" type="password" class="form-control" placeholder="Digite sua senha" />
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input asp-for="Lembrar" class="form-check-input" />
+                    <label asp-for="Lembrar" class="form-check-label">Lembrar-me</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            </form>
+
+            <div class="text-center text-muted mt-4">
+                Ainda não tem conta?
+                <a asp-controller="Account" asp-action="Register" class="link-primary">Cadastre-se</a>
+            </div>
+        </div>
+    </div>
+</div>

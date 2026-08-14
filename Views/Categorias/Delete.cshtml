@@ -1,0 +1,40 @@
+@model TechChallenge.Categoria
+
+@{
+    ViewData["Title"] = "Excluir Categoria";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="page-card">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                    <h1 class="page-title">Excluir Categoria</h1>
+                    <p class="text-muted mb-0">Confirme abaixo se deseja remover permanentemente esta categoria.</p>
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" asp-action="Index">Voltar</a>
+            </div>
+
+            <dl class="row gx-4 gy-3 mb-4">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Descricao)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Descricao)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Cor)</dt>
+                <dd class="col-sm-9"><span class="text-nowrap" style="color:@Model.Cor">@Model.Cor</span></dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Ativa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Ativa)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataCadastro)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DataCadastro)</dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

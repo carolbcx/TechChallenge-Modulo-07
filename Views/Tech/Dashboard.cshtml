@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Desafios Disponíveis";
+}
+
+<div class="container mt-4">
+    <h1 class="display-5 text-center mb-4">🏆 Desafios Disponíveis</h1>
+
+    <div class="row">
+        @foreach (var desafio in ViewBag.Desafios)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@desafio.Nome</h5>
+                        <p class="card-text text-muted">@desafio.Descricao</p>
+                        <span class="badge bg-primary">@desafio.Categoria</span>
+                        <p class="mt-2 fw-bold">🏅 @desafio.Pontuacao pts</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

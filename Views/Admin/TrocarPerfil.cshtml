@@ -1,0 +1,55 @@
+@model Microsoft.AspNetCore.Identity.IdentityUser
+@{
+    ViewData["Title"] = "Trocar Perfil do Usuário";
+    var rolesDisponiveis = ViewBag.RolesDisponiveis as List<Microsoft.AspNetCore.Identity.IdentityRole>;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">@ViewData["Title"]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label"><strong>Usuário:</strong></label>
+                        <p>@Model.Email</p>
+                    </div>
+
+                    <form method="post">
+                        <input type="hidden" name="idUser" value="@Model.Id" />
+
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Novo Perfil *</label>
+                            <select class="form-select" id="role" name="role" required>
+                                <option value="">-- Selecione um novo perfil --</option>
+                                @if (rolesDisponiveis != null && rolesDisponiveis.Any())
+                                {
+                                    foreach (var role in rolesDisponiveis)
+                                    {
+                                        <option value="@role.Name">@role.Name</option>
+                                    }
+                                }
+                            </select>
+                            <small class="form-text text-muted">Escolha o novo perfil que o usuário terá no sistema</small>
+                        </div>
+
+                        <div class="alert alert-info" role="alert">
+                            <small><strong>ℹ️ Informação:</strong> O usuário perderá todos os perfis anteriores e assumirá apenas o novo perfil selecionado. Esta ação é imediata.</small>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-shield-check"></i> Alterar Perfil
+                            </button>
+                            <a asp-action="Usuarios" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "Gerenciar Perfis (Roles)";
+}
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2>@ViewData["Title"]</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <a asp-action="CriarRole" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Novo Perfil
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+            <i class="bi bi-check-circle me-2"></i>
+            <div>@TempData["Sucesso"]</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle me-2"></i>
+            <div>@TempData["Erro"]</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Cargo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    foreach (var role in Model)
+                    {
+                        <tr>
+                            <td>
+                                <code>@role.Id.Substring(0, 8)...</code>
+                            </td>
+                            <td>
+                                @if (role.Name == "Admin")
+                                {
+                                    <span class="badge bg-danger">@role.Name</span>
+                                }
+                                else if (role.Name == "Professor")
+                                {
+                                    <span class="badge bg-info">@role.Name</span>
+                                }
+                                else if (role.Name == "Aluno")
+                                {
+                                    <span class="badge bg-success">@role.Name</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@role.Name</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <a asp-action="EditarRole" asp-route-id="@role.Id" class="btn btn-outline-primary" title="Editar">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </a>
+                                    <a asp-action="ExcluirRole" asp-route-id="@role.Id" class="btn btn-outline-danger" onclick="return confirm('Tem certeza que deseja excluir este perfil?');" title="Excluir">
+                                        <i class="bi bi-trash"></i> Excluir
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="text-center py-4">
+                            <p class="text-muted">Nenhum perfil encontrado.</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

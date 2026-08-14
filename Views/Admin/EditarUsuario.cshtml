@@ -1,0 +1,72 @@
+@model Microsoft.AspNetCore.Identity.IdentityUser
+@{
+    ViewData["Title"] = "Editar Usuário";
+    var rolesDisponiveis = ViewBag.RolesDisponiveis as List<Microsoft.AspNetCore.Identity.IdentityRole>;
+    var roleAtual = ViewBag.RoleAtual as string;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">@ViewData["Title"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="id" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="id" value="@Model.Id" disabled>
+                            <input type="hidden" name="id" value="@Model.Id">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail *</label>
+                            <input type="email" class="form-control" id="email" name="email" required value="@Model.Email" placeholder="Digite o novo e-mail">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Perfil</label>
+                            <select class="form-select" id="role" name="role">
+                                <option value="">-- Sem Perfil --</option>
+                                @if (rolesDisponiveis != null && rolesDisponiveis.Any())
+                                {
+                                    foreach (var role in rolesDisponiveis)
+                                    {
+                                        if (role.Name == roleAtual)
+                                        {
+                                            <option value="@role.Name" selected>@role.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@role.Name">@role.Name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                        <div class="alert alert-info" role="alert">
+                            <small>ℹ️ Para alterar a senha do usuário, solicite-lhe que use a opção de recuperação de senha ou altere diretamente no seu perfil.</small>
+                        </div>
+
+                        <div class="alert alert-primary" role="alert">
+                            <small><strong>💡 Dica:</strong> Altere o perfil do usuário abaixo para modificar suas permissões no sistema.</small>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle"></i> Salvar Alterações
+                            </button>
+                            <a asp-action="Usuarios" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
