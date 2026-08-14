@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm elegant-navbar mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TechChallenge</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -21,41 +21,41 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tech" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Tech" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tech" asp-action="About">Sobre</a>
+                            <a class="nav-link" asp-area="" asp-controller="Tech" asp-action="About">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tech" asp-action="Contact">Contato</a>
+                            <a class="nav-link" asp-area="" asp-controller="Tech" asp-action="Contact">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tech" asp-action="Dashboard">Dashboard</a>
+                            <a class="nav-link" asp-area="" asp-controller="Tech" asp-action="Dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
+                            <a class="nav-link" asp-area="" asp-controller="Alunos" asp-action="Index">Alunos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Categorias" asp-action="Index">Categorias</a>
+                            <a class="nav-link" asp-area="" asp-controller="Categorias" asp-action="Index">Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Professores" asp-action="Index">Professores</a>
+                            <a class="nav-link" asp-area="" asp-controller="Professores" asp-action="Index">Professores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Equipes" asp-action="Index">Equipes</a>
+                            <a class="nav-link" asp-area="" asp-controller="Equipes" asp-action="Index">Equipes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projetos" asp-action="Index">Projetos</a>
+                            <a class="nav-link" asp-area="" asp-controller="Projetos" asp-action="Index">Projetos</a>
                         </li>
                         @if (User.Identity?.IsAuthenticated == true)
                         {
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="Roles">Perfil de Usuário</a>
+                                    <a class="nav-link" asp-controller="Admin" asp-action="Roles">Perfil de Usuário</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="Usuarios">Usuários</a>
+                                    <a class="nav-link" asp-controller="Admin" asp-action="Usuarios">Usuários</a>
                                 </li>
                             }
                         }
@@ -91,7 +91,7 @@
     </div>
     
     <footer class="footer mt-5 text-muted text-center">
-        TechChallenge &copy; 2026 | Desenvolvido com ❤️ por Aln. Joao Gabriel Fuzel
+        TechChallenge &copy; 2026 | Desenvolvido com 🤎 por Caroline Barbosa
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

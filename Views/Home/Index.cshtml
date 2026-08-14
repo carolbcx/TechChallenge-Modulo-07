@@ -1,49 +1,73 @@
 ﻿@{
     ViewData["Title"] = "Início";
-    var teste = "Olá, bem-vindo";
 }
 
-<div class="hero-card">
-    <div class="row align-items-center g-4">
-        <div class="col-lg-7">
-            <p class="eyebrow">Painel administrativo</p>
-            <h1 class="display-5 fw-bold">Bem-vindo ao TechChallenge</h1>
-            <p class="lead text-muted">Gerencie projetos, categorias e equipes em uma experiência visual clara e eficiente.</p>
-            <div class="d-flex flex-wrap gap-3 mt-4">
-                <a class="btn btn-primary" asp-controller="Projetos" asp-action="Index">Ver projetos</a>
-                <a class="btn btn-outline-primary" asp-controller="Categorias" asp-action="Index">Ver categorias</a>
-            </div>
-        </div>
-        <div class="col-lg-5">
-            <div class="feature-box">
-                <h3>O que você encontra</h3>
-                <ul class="list-unstyled mt-3 mb-0">
-                    <li>• Gestão de alunos e professores</li>
-                    <li>• Organização por categorias e equipes</li>
-                    <li>• Acompanhamento de projetos e entregas</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="welcome-shell">
+    <section class="hero-card welcome-hero">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <p class="eyebrow">Painel administrativo</p>
+                <h1 class="welcome-title">Bem-vindo ao TechChallenge</h1>
+                <p class="welcome-subtitle">Gerencie projetos, categorias, equipes e usuários com clareza, organização e um visual mais profissional.</p>
 
-<div class="row g-4 mt-2">
-    <div class="col-md-4">
-        <div class="info-card">
-            <h5>Visão geral</h5>
-            <p>Interface limpa e navegável para centralizar informações do desafio.</p>
+                <div class="welcome-actions">
+                    <a class="btn btn-primary" asp-controller="Projetos" asp-action="Index">Ver projetos</a>
+                    <a class="btn btn-outline-primary" asp-controller="Categorias" asp-action="Index">Ver categorias</a>
+                    <a class="btn btn-outline-primary" asp-controller="Equipes" asp-action="Index">Equipes</a>
+                </div>
+
+                <div class="welcome-meta">
+                    <div class="meta-pill">
+                        <strong>12</strong>
+                        <span>Projetos</span>
+                    </div>
+                    <div class="meta-pill">
+                        <strong>08</strong>
+                        <span>Equipes</span>
+                    </div>
+                    <div class="meta-pill">
+                        <strong>24</strong>
+                        <span>Cadastros</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="welcome-panel">
+                    <h3>Resumo rápido</h3>
+                    <ul class="welcome-list">
+                        <li><span class="dot"></span> Gestão de alunos e professores</li>
+                        <li><span class="dot"></span> Organização por categorias e equipes</li>
+                        <li><span class="dot"></span> Acompanhamento de projetos e entregas</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="info-card">
-            <h5>Colaboração</h5>
-            <p>Facilita o trabalho em equipe com organização e rastreio simples.</p>
+    </section>
+
+    <section class="welcome-grid row g-4 mt-1">
+        <div class="col-md-4">
+            <div class="info-card welcome-card">
+                <div class="card-number">01</div>
+                <h5>Visão geral</h5>
+                <p>Interface organizada para centralizar informações do desafio e facilitar a navegação diária.</p>
+            </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="info-card">
-            <h5>Resultado</h5>
-            <p>Uma experiência mais profissional para os usuários e administradores.</p>
+
+        <div class="col-md-4">
+            <div class="info-card welcome-card">
+                <div class="card-number">02</div>
+                <h5>Colaboração</h5>
+                <p>Estrutura clara para apoiar times e administradores no acompanhamento do trabalho em equipe.</p>
+            </div>
         </div>
-    </div>
+
+        <div class="col-md-4">
+            <div class="info-card welcome-card">
+                <div class="card-number">03</div>
+                <h5>Resultado</h5>
+                <p>Uma experiência mais profissional, moderna e intuitiva para todas as pessoas envolvidas.</p>
+            </div>
+        </div>
+    </section>
 </div>

@@ -2,48 +2,94 @@
     ViewData["Title"] = "TechChallenge";
 }
 
-<div class="hero-card mt-4">
-    <div class="row align-items-center g-4">
-        <div class="col-lg-7">
-            <p class="eyebrow">Bem-vindo ao painel</p>
-            <h1 class="display-5 fw-bold">Gerencie projetos, categorias e equipes com mais clareza.</h1>
-            <p class="lead text-muted">A plataforma TechChallenge oferece navegação limpa, cadastros rápidos e um painel de controle com foco em gerenciamento educacional.</p>
-            <div class="d-flex flex-wrap gap-3 mt-4">
-                <a class="btn btn-primary" asp-controller="Projetos" asp-action="Index">Projetos</a>
-                <a class="btn btn-outline-primary" asp-controller="Categorias" asp-action="Index">Categorias</a>
-                <a class="btn btn-outline-primary" asp-controller="Equipes" asp-action="Index">Equipes</a>
+<div class="home-dashboard">
+    <section class="dashboard-topbar">
+        <div>
+            <p class="eyebrow">Resumo geral</p>
+            <h1 class="dashboard-title">Dashboard do TechChallenge</h1>
+        </div>
+        <div class="dashboard-actions">
+            <a class="btn btn-primary" asp-controller="Projetos" asp-action="Index">Novo projeto</a>
+            <a class="btn btn-outline-primary" asp-controller="Alunos" asp-action="Index">Alunos</a>
+        </div>
+    </section>
+
+    <section class="stats-grid row g-4 mt-1">
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                <span class="stat-label">Projetos</span>
+                <strong class="stat-value">128</strong>
+                <small>+12% este mês</small>
             </div>
         </div>
-        <div class="col-lg-5">
-            <div class="feature-box">
-                <h3>Recursos rápidos</h3>
-                <ul class="list-unstyled mt-3 mb-0">
-                    <li>• Criação e gerenciamento de categorias</li>
-                    <li>• Vinculação de projetos a professores e equipes</li>
-                    <li>• Layout responsivo e visual moderno</li>
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card accent">
+                <span class="stat-label">Alunos</span>
+                <strong class="stat-value">96</strong>
+                <small>+8% no período</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card warm">
+                <span class="stat-label">Equipes</span>
+                <strong class="stat-value">24</strong>
+                <small>6 ativas hoje</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card soft">
+                <span class="stat-label">Categorias</span>
+                <strong class="stat-value">14</strong>
+                <small>3 novas</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-grid row g-4 mt-2">
+        <div class="col-lg-8">
+            <div class="panel-card panel-large">
+                <div class="panel-header">
+                    <h3>Atividades recentes</h3>
+                    <span class="panel-tag">Hoje</span>
+                </div>
+                <ul class="activity-list">
+                    <li>
+                        <span class="activity-bullet"></span>
+                        <div>
+                            <strong>Projeto de extensão foi atualizado</strong>
+                            <small>Há 1 hora</small>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="activity-bullet"></span>
+                        <div>
+                            <strong>Nova equipe cadastrada</strong>
+                            <small>Há 3 horas</small>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="activity-bullet"></span>
+                        <div>
+                            <strong>Categoria “Inovação” foi criada</strong>
+                            <small>Há 5 horas</small>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row g-4 mt-4">
-    <div class="col-md-4">
-        <div class="info-card">
-            <h5>Visão geral</h5>
-            <p>Centralize informações e organize seu ciclo de projetos com simplicidade.</p>
+        <div class="col-lg-4">
+            <div class="panel-card panel-side">
+                <div class="panel-header">
+                    <h3>Acesso rápido</h3>
+                </div>
+                <div class="quick-links">
+                    <a asp-controller="Categorias" asp-action="Index">Categorias</a>
+                    <a asp-controller="Equipes" asp-action="Index">Equipes</a>
+                    <a asp-controller="Professores" asp-action="Index">Professores</a>
+                    <a asp-controller="Admin" asp-action="Usuarios">Usuários</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="info-card">
-            <h5>Cadastros fluídos</h5>
-            <p>Formulários claros e campos bem posicionados para agilizar as tarefas.</p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="info-card">
-            <h5>Design consistente</h5>
-            <p>Uma interface cada vez mais profissional e fácil de usar para todos os usuários.</p>
-        </div>
-    </div>
+    </section>
 </div>
