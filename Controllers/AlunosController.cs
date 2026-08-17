@@ -21,9 +21,16 @@ namespace TechChallenge.Controllers
         }
 
         // GET: Alunos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchString)
         {
-            return View(await _context.Alunos.ToListAsync());
+            var alunos = _context.Alunos.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                alunos = alunos.Where(a => a.Nome.Contains(searchString));
+            }
+
+            return View(await alunos.ToListAsync());
         }
 
         // GET: Alunos/Details/5
@@ -158,5 +165,6 @@ namespace TechChallenge.Controllers
         {
             return _context.Alunos.Any(e => e.Id == id);
         }
+
     }
 }
